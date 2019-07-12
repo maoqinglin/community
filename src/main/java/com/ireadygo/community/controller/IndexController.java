@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class HelloController {
+public class IndexController {
 
-    @GetMapping("/hello")
-    public String hello(@RequestParam(name = "name") String name, Model model) {
+    @GetMapping("/")
+    public String index(@RequestParam(name = "name", required = false) String name, Model model) {
         model.addAttribute("name", name);
-        return "hello"; // 需要引入 thymeleaf，否则报javax.servlet.ServletException: Circular view path [hello]:
+        return "index";
     }
 }
