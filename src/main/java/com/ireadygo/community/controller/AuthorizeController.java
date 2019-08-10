@@ -5,9 +5,6 @@ import com.ireadygo.community.dto.GithubUser;
 import com.ireadygo.community.mapper.UserMapper;
 import com.ireadygo.community.model.User;
 import com.ireadygo.community.provider.GithubProvider;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -17,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.io.IOException;
 import java.util.UUID;
 
 @Controller
@@ -58,6 +53,7 @@ public class AuthorizeController {
             user.setToken(token);
             user.setGmtCreate(System.currentTimeMillis());
             user.setGmtModified(user.getGmtCreate());
+            user.setAvatarUrl(githubUser.getAvatar_url() );
             userMapper.insert(user);
 
             response.addCookie(new Cookie("token",token));

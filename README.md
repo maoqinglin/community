@@ -3,8 +3,8 @@
 [Spring Web](https://spring.io/guides/gs/serving-web-contt/)  
 [es](https://elasticsearchn/)  
 [Bootstrap](https:esss.com/getting-started/)  
-[okhttp](https://square.github.io/okhttp/)
-
+[okhttp](https://square.github.io/okhttp/)  
+[lombok 需要安装插件](https://projectlombok.org/) 
 ## 脚本
 ```sql
 create table user
