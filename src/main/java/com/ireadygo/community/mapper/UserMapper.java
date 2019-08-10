@@ -3,6 +3,7 @@ package com.ireadygo.community.mapper;
 import com.ireadygo.community.model.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 @Mapper
@@ -13,4 +14,7 @@ public interface UserMapper {
 
     @Select("select * from user where token = #{token}")
     User findUser(String token);
+
+    @Select("select * from user where id = #{id}")
+    User findById(@Param("id") Integer id);
 }
